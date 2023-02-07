@@ -9,19 +9,23 @@
 /* Begin PBXBuildFile section */
 		2CB735BB2992C45F00D6A701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB735BA2992C45F00D6A701 /* AppDelegate.swift */; };
 		2CB735BD2992C45F00D6A701 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB735BC2992C45F00D6A701 /* SceneDelegate.swift */; };
-		2CB735BF2992C45F00D6A701 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB735BE2992C45F00D6A701 /* MainViewController.swift */; };
 		2CB735C42992C45F00D6A701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB735C32992C45F00D6A701 /* Assets.xcassets */; };
 		2CB735C72992C45F00D6A701 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB735C52992C45F00D6A701 /* LaunchScreen.storyboard */; };
+		2CF624732992DB2E00DE4A01 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF624722992DB2E00DE4A01 /* LoginViewController.swift */; };
+		2CF624752992DB3C00DE4A01 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF624742992DB3C00DE4A01 /* LoginView.swift */; };
+		2CF624782992DB5300DE4A01 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF624772992DB5300DE4A01 /* DummyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2CB735B72992C45F00D6A701 /* BankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB735BA2992C45F00D6A701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB735BC2992C45F00D6A701 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2CB735BE2992C45F00D6A701 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2CB735C32992C45F00D6A701 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CB735C62992C45F00D6A701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CB735C82992C45F00D6A701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CF624722992DB2E00DE4A01 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2CF624742992DB3C00DE4A01 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2CF624772992DB5300DE4A01 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,6 @@
 		2CB735B92992C45F00D6A701 /* BankApp */ = {
 			isa = PBXGroup;
 			children = (
-				2CB735BE2992C45F00D6A701 /* MainViewController.swift */,
 				2CB735CF2992C4FF00D6A701 /* LogIn */,
 				2CB735CE2992C47B00D6A701 /* Resources */,
 			);
@@ -76,6 +79,9 @@
 		2CB735CF2992C4FF00D6A701 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
+				2CF624742992DB3C00DE4A01 /* LoginView.swift */,
+				2CF624722992DB2E00DE4A01 /* LoginViewController.swift */,
+				2CF624772992DB5300DE4A01 /* DummyViewController.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -150,8 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CB735BF2992C45F00D6A701 /* MainViewController.swift in Sources */,
+				2CF624732992DB2E00DE4A01 /* LoginViewController.swift in Sources */,
+				2CF624782992DB5300DE4A01 /* DummyViewController.swift in Sources */,
 				2CB735BB2992C45F00D6A701 /* AppDelegate.swift in Sources */,
+				2CF624752992DB3C00DE4A01 /* LoginView.swift in Sources */,
 				2CB735BD2992C45F00D6A701 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +304,6 @@
 				INFOPLIST_FILE = BankApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +331,6 @@
 				INFOPLIST_FILE = BankApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
