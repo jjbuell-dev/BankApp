@@ -57,20 +57,20 @@ extension LoginView {
         usernameTextField.delegate = self
         usernameTextField.placeholder = "Username"
         
+        // dividerView
+        dividerView.translatesAutoresizingMaskIntoConstraints = false
+        dividerView.backgroundColor = .secondarySystemFill
+
         // passwordTextField
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.delegate = self
         passwordTextField.isSecureTextEntry = true
         passwordTextField.placeholder = "Password"
-        
-        // dividerView
-        dividerView.translatesAutoresizingMaskIntoConstraints = false
-        dividerView.backgroundColor = .secondarySystemFill
-        
     }
     
     private func layoutUI() {
         addSubview(verticalStackView)
+        
         verticalStackView.addArrangedSubview(usernameTextField)
         verticalStackView.addArrangedSubview(dividerView)
         verticalStackView.addArrangedSubview(passwordTextField)

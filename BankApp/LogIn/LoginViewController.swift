@@ -10,15 +10,26 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+}
+
+protocol LogoutDelegate: AnyObject {
+    func didLogout()
+}
+
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
+    
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
+    
+    weak var delegate: LoginViewControllerDelegate?
     
     // MARK: - Computed Properties (local username/password)
     
@@ -39,6 +50,11 @@ class LoginViewController: UIViewController {
         layoutUI()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        signInButton.configuration?.showsActivityIndicator = false
+    }
 }
 
 // MARK: - Extensions
@@ -69,7 +85,7 @@ extension LoginViewController {
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.configuration = .filled()
         signInButton.configuration?.imagePadding = 8 // for indicator spacing
-        signInButton.setTitle("Sign In", for: [])
+        signInButton.setTitle("Sign In", for: .normal)
         signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
         
         // errorMessageLabel
@@ -77,7 +93,6 @@ extension LoginViewController {
         errorMessageLabel.textAlignment = .center
         errorMessageLabel.textColor = .systemRed
         errorMessageLabel.numberOfLines = 0
-//        errorMessageLabel.text = "Error failure"
         errorMessageLabel.isHidden = true
     }
     
@@ -125,17 +140,26 @@ extension LoginViewController {
             return
         }
         
-        if username.isEmpty || password.isEmpty {
-            configureView(withMessage: "Username / password cannot be blank")
-            return
-        }
+        // Temporary
+//        if username.isEmpty || password.isEmpty {
+//            configureView(withMessage: "Username / password cannot be blank")
+//            return
+//        }
         
-        if username == "Kevin" && password == "Welcome" {
+        if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogin()
             
         } else {
             configureView(withMessage: "Incorrect username / password")
         }
+        
+//        if username == "Kevin" && password == "Welcome" {
+//            signInButton.configuration?.showsActivityIndicator = true
+//
+//        } else {
+//            configureView(withMessage: "Incorrect username / password")
+//        }
     }
     
     private func configureView(withMessage message: String) {
