@@ -23,7 +23,6 @@ public class LocalState { // class to check if onboarding has been completed
         
         set(newValue) {
             UserDefaults.standard.set(newValue, forKey: Keys.hasOnboarded.rawValue)
-            UserDefaults.standard.synchronize()
         }
     }
 }
