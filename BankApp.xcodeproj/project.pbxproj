@@ -11,6 +11,8 @@
 		2C9CC05829942F060031C15D /* AccountSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9CC05729942F060031C15D /* AccountSummaryHeaderView.swift */; };
 		2C9CC05A299433A40031C15D /* AccountSummaryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C9CC059299433A40031C15D /* AccountSummaryHeaderView.xib */; };
 		2C9CC05E299443980031C15D /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9CC05D299443980031C15D /* AccountSummaryCell.swift */; };
+		2C9CC06029945DBA0031C15D /* DecimalUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9CC05F29945DBA0031C15D /* DecimalUtilities.swift */; };
+		2C9CC06229945DFE0031C15D /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9CC06129945DFE0031C15D /* CurrencyFormatter.swift */; };
 		2CB735BB2992C45F00D6A701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB735BA2992C45F00D6A701 /* AppDelegate.swift */; };
 		2CB735BD2992C45F00D6A701 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB735BC2992C45F00D6A701 /* SceneDelegate.swift */; };
 		2CB735C42992C45F00D6A701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB735C32992C45F00D6A701 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		2C9CC05729942F060031C15D /* AccountSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryHeaderView.swift; sourceTree = "<group>"; };
 		2C9CC059299433A40031C15D /* AccountSummaryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSummaryHeaderView.xib; sourceTree = "<group>"; };
 		2C9CC05D299443980031C15D /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
+		2C9CC05F29945DBA0031C15D /* DecimalUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUtilities.swift; sourceTree = "<group>"; };
+		2C9CC06129945DFE0031C15D /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		2CB735B72992C45F00D6A701 /* BankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB735BA2992C45F00D6A701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB735BC2992C45F00D6A701 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 			children = (
 				2CF62481299344A900DE4A01 /* LocalState.swift */,
 				2CF6248329937EA200DE4A01 /* UIViewController+Ext.swift */,
+				2C9CC05F29945DBA0031C15D /* DecimalUtilities.swift */,
+				2C9CC06129945DFE0031C15D /* CurrencyFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -228,8 +234,10 @@
 				2C9CC05E299443980031C15D /* AccountSummaryCell.swift in Sources */,
 				2CF6247F29930C1200DE4A01 /* DummyViewController.swift in Sources */,
 				2CF624732992DB2E00DE4A01 /* LoginViewController.swift in Sources */,
+				2C9CC06229945DFE0031C15D /* CurrencyFormatter.swift in Sources */,
 				2CF6247D2993026A00DE4A01 /* OnboardingViewController.swift in Sources */,
 				2CB735BB2992C45F00D6A701 /* AppDelegate.swift in Sources */,
+				2C9CC06029945DBA0031C15D /* DecimalUtilities.swift in Sources */,
 				2CF624752992DB3C00DE4A01 /* LoginView.swift in Sources */,
 				2CF6247B2993025D00DE4A01 /* OnboardingContainerViewController.swift in Sources */,
 				2CB735BD2992C45F00D6A701 /* SceneDelegate.swift in Sources */,

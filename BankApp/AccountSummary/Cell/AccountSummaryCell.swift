@@ -12,6 +12,32 @@ import UIKit
 
 class AccountSummaryCell: UITableViewCell {
     
+    // MARK: - Enum Properties
+    // could be moved out to seperate files
+    enum AccountType: String {
+        case Banking
+        case CreditCard
+        case Investment
+    }
+    
+    // MARK: - ViewModel
+    
+    struct ViewModel {
+        let accountType: AccountType
+        let accountName: String
+        
+        // configure to accept decimals
+        let balance: Decimal
+        
+        var balanceAsAttributedString: NSAttributedString {
+            return CurrencyFormatter().makeAttributedCurrency(balance)
+        }
+    }
+    
+    // MARK: - ViewModel Properties
+    
+    let viewModel: ViewModel? = nil
+    
     // MARK: - Properties
     
     let typeLabel = UILabel()
@@ -47,7 +73,6 @@ class AccountSummaryCell: UITableViewCell {
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
         typeLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
         typeLabel.adjustsFontForContentSizeCategory = true
-        typeLabel.text = "Account Type"
         
         // underLineView
         underLineView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +81,6 @@ class AccountSummaryCell: UITableViewCell {
         // nameLabel
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        nameLabel.text = "Account Name"
         
         // balanceStackView
         balanceStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,13 +91,11 @@ class AccountSummaryCell: UITableViewCell {
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceLabel.font = UIFont.preferredFont(forTextStyle: .body)
         balanceLabel.textAlignment = .right
-        balanceLabel.text = "Some balance"
         
         // balanceAmountLabel
         balanceAmountLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceAmountLabel.textAlignment = .right
-//        balanceAmountLabel.text = "$929,466.63"
-        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "929,466", cents: "23")
+        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "XXX,XXX", cents: "XX")
         
         // chevronImageView
         chevronImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -138,5 +160,30 @@ extension AccountSummaryCell {
         rootString.append(centString)
         
        return rootString
+    }
+}
+
+// MARK: - Extension ViewModel Configuration
+
+extension AccountSummaryCell {
+    func configure(with viewModel: ViewModel) {
+        
+        typeLabel.text = viewModel.accountType.rawValue
+        nameLabel.text = viewModel.accountName
+        balanceAmountLabel.attributedText = viewModel.balanceAsAttributedString
+        
+        switch viewModel.accountType {
+        case .Banking:
+            underLineView.backgroundColor = appColor
+            balanceLabel.text = "Current Balance"
+        
+        case .CreditCard:
+            underLineView.backgroundColor = .systemOrange
+            balanceLabel.text = "Current Balance"
+            
+        case .Investment:
+            underLineView.backgroundColor = .systemPurple
+            balanceLabel.text = "Value"
+        }
     }
 }
