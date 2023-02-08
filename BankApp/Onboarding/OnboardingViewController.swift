@@ -70,9 +70,9 @@ extension OnboardingViewController {
     }
     
     func layoutUI() {
-        view.addSubview(verticalStackView)
         verticalStackView.addArrangedSubview(mainImageView)
         verticalStackView.addArrangedSubview(titleLabel)
+        view.addSubview(verticalStackView)
         
         NSLayoutConstraint.activate([
             verticalStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
