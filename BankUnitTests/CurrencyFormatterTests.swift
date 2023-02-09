@@ -7,8 +7,6 @@
 // Created by Royal Blue Software
 // 
 
-
-import Foundation
 import XCTest
 
 @testable import BankApp
