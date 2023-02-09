@@ -17,7 +17,6 @@ class AccountSummaryViewController: UIViewController {
     var accounts: [AccountSummaryCell.ViewModel] = []
     var tableView = UITableView()
     
-    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -38,21 +37,22 @@ class AccountSummaryViewController: UIViewController {
     }
     
     private func setupTableView() {
+        tableView.backgroundColor = appColor
         tableView.delegate = self
         tableView.dataSource = self
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tableView)
-        
+
         // AccountSummary Cell registration
         tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.reuseID)
         tableView.rowHeight = AccountSummaryCell.rowHeight
         tableView.tableFooterView = UIView()  // makes sure nothing shows up on footerView
         
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
