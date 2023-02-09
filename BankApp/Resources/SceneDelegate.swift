@@ -28,17 +28,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         loginViewController.delegate = self
         onboardingContainerViewController.delegate = self
         
-        let viewController = mainViewController
-        viewController.setStatusBar()
+        //        let viewController = mainViewController
+        //        viewController.setStatusBar()
+        //
+        window.makeKeyAndVisible()
+        //        window.rootViewController = viewController
         
+        self.window = window
+        
+        displayLogin()
+    }
+    
+    private func displayLogin() {
+        setRootViewController(loginViewController)
+    }
+    
+    private func displayNextScreen() {
+        if LocalState.hasOnboarded {
+            prepMainView()
+            setRootViewController(mainViewController)
+            
+        } else {
+            setRootViewController(onboardingContainerViewController)
+        }
+    }
+    
+    private func prepMainView() {
+        mainViewController.setStatusBar()
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().backgroundColor = appColor
         
-        window.makeKeyAndVisible()
-        window.rootViewController = viewController
-        
-        self.window = window
     }
+    
     
     func sceneDidDisconnect(_ scene: UIScene) {
     }
@@ -77,11 +98,7 @@ extension SceneDelegate {
 
 extension SceneDelegate: LoginViewControllerDelegate {
     func didLogin() {
-        if LocalState.hasOnboarded {
-            setRootViewController(mainViewController)
-        } else {
-            setRootViewController(onboardingContainerViewController)
-        }
+       displayNextScreen()
     }
 }
 
@@ -90,6 +107,7 @@ extension SceneDelegate: LoginViewControllerDelegate {
 extension SceneDelegate: OnboardingContainerViewControllerDelegate {
     func didFinishOnboarding() {
         LocalState.hasOnboarded = true
+        prepMainView()
         setRootViewController(mainViewController)
     }
 }

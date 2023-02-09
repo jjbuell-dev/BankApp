@@ -11,7 +11,7 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -26,21 +26,21 @@ class MainViewController: UITabBarController {
     
     private func setupViews() {
         let summaryVC = AccountSummaryViewController()
-//        let moneyVC = MoveMoneyViewController()
-//        let moreVC = MoreViewController()
+        let moneyVC = MoveMoneyViewController()
+        let moreVC = MoreViewController()
         
         summaryVC.setTabBarImage(imageName: "list.dash.header.rectangle", title: "Summary")
-//        moneyVC.setTabBarImage(imageName: "arrow.left.arrow.right", title: "Move Money")
-//        moreVC.setTabBarImage(imageName: "ellipsis", title: "More")
+        moneyVC.setTabBarImage(imageName: "arrow.left.arrow.right", title: "Move Money")
+        moreVC.setTabBarImage(imageName: "ellipsis", title: "More")
         
         let summaryNC = UINavigationController(rootViewController: summaryVC)
-//        let moneyNC = UINavigationController(rootViewController: moneyVC)
-//        let moreNC = UINavigationController(rootViewController: moreVC)
+        let moneyNC = UINavigationController(rootViewController: moneyVC)
+        let moreNC = UINavigationController(rootViewController: moreVC)
         
         summaryNC.navigationBar.barTintColor = appColor
         hideNavigationBarLine(summaryNC.navigationBar)
         
-        let tabBarList = [summaryNC]
+        let tabBarList = [summaryNC, moneyNC, moreNC]
         viewControllers = tabBarList
     }
     
@@ -57,3 +57,20 @@ class MainViewController: UITabBarController {
         tabBar.isTranslucent = false
     }
 }
+
+// MARK: - Extension with Sample ViewControllers
+
+class MoveMoneyViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemOrange
+    }
+}
+
+class MoreViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemPurple
+    }
+}
+
