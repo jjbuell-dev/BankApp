@@ -19,7 +19,6 @@ class LoginView: UIView {
     let passwordTextField = UITextField()
     let dividerView = UIView()
     
-    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -51,7 +50,7 @@ extension LoginView {
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.axis = .vertical
         verticalStackView.spacing = 8
-
+        
         // usernameTextField
         usernameTextField.translatesAutoresizingMaskIntoConstraints = false
         usernameTextField.delegate = self
@@ -60,12 +59,13 @@ extension LoginView {
         // dividerView
         dividerView.translatesAutoresizingMaskIntoConstraints = false
         dividerView.backgroundColor = .secondarySystemFill
-
+        
         // passwordTextField
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.delegate = self
         passwordTextField.isSecureTextEntry = true
         passwordTextField.placeholder = "Password"
+        passwordTextField.enablePasswordToggle()
     }
     
     private func layoutUI() {

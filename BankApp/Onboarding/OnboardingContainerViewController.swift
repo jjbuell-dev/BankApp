@@ -27,6 +27,7 @@ class OnboardingContainerViewController: UIViewController {
     weak var delegate: OnboardingContainerViewControllerDelegate?
     
     // MARK: - Initializer
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
